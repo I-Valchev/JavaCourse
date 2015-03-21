@@ -385,19 +385,16 @@ public class main {
 				insideNumber = false;
 
 			if(!lastCharDigit && insideNumber) { // we've entered a new number
-				System.out.println("numStart(" + numStart + ")");
 				numStart = i; 
 			}
 			
 			if(!insideNumber && lastCharDigit){	//we've got out of a number
-				System.out.println("numStart(" + numStart + ")");
 				String numString = input.substring(numStart, i);
 				sum += Integer.parseInt(numString);
-				System.out.println("Adding: " + numString);
 			}	
 		}
 
-		if(insideNumber){	//aaa12 - num as end of string case
+		if(insideNumber){
 			String numString = input.substring(numStart, input.length());
 			sum += Integer.parseInt(numString);
 		}	
