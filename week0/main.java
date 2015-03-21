@@ -342,11 +342,9 @@ public class main {
 		
 		for(int i = 0; i < input.length(); ++i){
 			char c = input.charAt(i);
-			if(c != ' ' && c != '\t' && c!= '\n'){
-				System.out.println("Char is %" + c + "%");
+			if(c != ' ' && c != '\t' && c!= '\n')
 				for(int j = 0; j < k - 1; ++j) str.append(c); //according to the unittest, whitespaces should not be copied
-			}
-			
+
 			str.append(c);
 		}
 		
