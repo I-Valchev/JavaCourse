@@ -97,6 +97,11 @@ public class Time {
 		
 		return time;
 	}
+	
+	public String toString(){
+		String result = this.hours + ":" + this.minutes + ":" + this.seconds + " " + this.day + "." + this.month + "." + this.year;
+		return result;
+	}
 
 	public Time(){
 	}

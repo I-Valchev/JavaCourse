@@ -1,6 +1,7 @@
 package part2;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -88,6 +89,11 @@ public class TimeTest {
 	public void constructionWithTimeObject(){
 		t.setYear(2016);
 		assertEquals(2016, new Time(t).getYear());
+	}
+	
+	@Test
+	public void toStringTest(){
+		assertEquals("0:0:0 1.1.2015", t.toString());
 	}
 
 }

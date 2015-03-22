@@ -1,94 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>TimeTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">All (22.03.2015 14:51:06)</a> &gt; <a href="../../index.html" class="el_group">test</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">part2</a> &gt; <span class="el_source">TimeTest.java</span></div><h1>TimeTest.java</h1><pre class="source lang-java linenums">package part2;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>TimeTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">All (22.03.2015 16:38:31)</a> &gt; <a href="../../index.html" class="el_group">test</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">part2</a> &gt; <span class="el_source">TimeTest.java</span></div><h1>TimeTest.java</h1><pre class="source lang-java linenums">package part2;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
-<span class="fc" id="L7">public class TimeTest {</span>
+<span class="fc" id="L8">public class TimeTest {</span>
 	
 	Time t;
 	
 	@Before
 	public void setUp(){
-<span class="fc" id="L13">		t = new Time();</span>
-<span class="fc" id="L14">	}</span>
+<span class="fc" id="L14">		t = new Time();</span>
+<span class="fc" id="L15">	}</span>
 
 	
 	
 	@Test
 	public void setAndGetYear(){
-<span class="fc" id="L20">		t.setYear(2016);</span>
-<span class="fc" id="L21">		assertEquals(2016, t.getYear());</span>
-<span class="fc" id="L22">	}</span>
+<span class="fc" id="L21">		t.setYear(2016);</span>
+<span class="fc" id="L22">		assertEquals(2016, t.getYear());</span>
+<span class="fc" id="L23">	}</span>
 	
 	@Test
 	public void dayAndMonth(){
-<span class="fc" id="L26">		t.setMonth(1);</span>
-<span class="fc" id="L27">		t.setDay(31);</span>
-<span class="fc" id="L28">		assertEquals(1, t.getMonth());</span>
-<span class="fc" id="L29">		assertEquals(31, t.getDay());</span>
-<span class="fc" id="L30">	}</span>
+<span class="fc" id="L27">		t.setMonth(1);</span>
+<span class="fc" id="L28">		t.setDay(31);</span>
+<span class="fc" id="L29">		assertEquals(1, t.getMonth());</span>
+<span class="fc" id="L30">		assertEquals(31, t.getDay());</span>
+<span class="fc" id="L31">	}</span>
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void monthException(){
-<span class="nc" id="L34">		t.setMonth(14);</span>
-<span class="nc" id="L35">	}</span>
+<span class="nc" id="L35">		t.setMonth(14);</span>
+<span class="nc" id="L36">	}</span>
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void dayException(){
-<span class="nc" id="L39">		t.setMonth(2);</span>
-<span class="nc" id="L40">		t.setDay(29);</span>
-<span class="nc" id="L41">	}</span>
+<span class="nc" id="L40">		t.setMonth(2);</span>
+<span class="nc" id="L41">		t.setDay(29);</span>
+<span class="nc" id="L42">	}</span>
 	
 	@Test
 	public void hours(){
-<span class="fc" id="L45">		t.setHours(5);</span>
-<span class="fc" id="L46">		assertEquals(5, t.getHours());</span>
-<span class="fc" id="L47">	}</span>
+<span class="fc" id="L46">		t.setHours(5);</span>
+<span class="fc" id="L47">		assertEquals(5, t.getHours());</span>
+<span class="fc" id="L48">	}</span>
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void hoursException(){
-<span class="nc" id="L51">		t.setHours(26);</span>
-<span class="nc" id="L52">	}</span>
+<span class="nc" id="L52">		t.setHours(26);</span>
+<span class="nc" id="L53">	}</span>
 	
 	@Test
 	public void minutes(){
-<span class="fc" id="L56">		t.setMinutes(5);</span>
-<span class="fc" id="L57">		assertEquals(5, t.getMinutes());</span>
-<span class="fc" id="L58">	}</span>
+<span class="fc" id="L57">		t.setMinutes(5);</span>
+<span class="fc" id="L58">		assertEquals(5, t.getMinutes());</span>
+<span class="fc" id="L59">	}</span>
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void minutesException(){
-<span class="nc" id="L62">		t.setMinutes(65);</span>
-<span class="nc" id="L63">	}</span>
+<span class="nc" id="L63">		t.setMinutes(65);</span>
+<span class="nc" id="L64">	}</span>
 	
 	@Test
 	public void seconds(){
-<span class="fc" id="L67">		t.setSeconds(5);</span>
-<span class="fc" id="L68">		assertEquals(5, t.getSeconds());</span>
-<span class="fc" id="L69">	}</span>
+<span class="fc" id="L68">		t.setSeconds(5);</span>
+<span class="fc" id="L69">		assertEquals(5, t.getSeconds());</span>
+<span class="fc" id="L70">	}</span>
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void secondsException(){
-<span class="nc" id="L73">		t.setSeconds(65);</span>
-<span class="nc" id="L74">	}</span>
+<span class="nc" id="L74">		t.setSeconds(65);</span>
+<span class="nc" id="L75">	}</span>
 	
 	@Test
 	public void millisecodns(){
-<span class="fc" id="L78">		t.setMilliseconds(500);</span>
-<span class="fc" id="L79">		assertEquals(500, t.getMilliseconds());</span>
-<span class="fc" id="L80">	}</span>
+<span class="fc" id="L79">		t.setMilliseconds(500);</span>
+<span class="fc" id="L80">		assertEquals(500, t.getMilliseconds());</span>
+<span class="fc" id="L81">	}</span>
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void millisecondsException(){
-<span class="nc" id="L84">		t.setMilliseconds(1005);</span>
-<span class="nc" id="L85">	}</span>
+<span class="nc" id="L85">		t.setMilliseconds(1005);</span>
+<span class="nc" id="L86">	}</span>
 	
 	@Test
 	public void constructionWithTimeObject(){
-<span class="fc" id="L89">		t.setYear(2016);</span>
-<span class="fc" id="L90">		assertEquals(2016, new Time(t).getYear());</span>
-<span class="fc" id="L91">	}</span>
+<span class="fc" id="L90">		t.setYear(2016);</span>
+<span class="fc" id="L91">		assertEquals(2016, new Time(t).getYear());</span>
+<span class="fc" id="L92">	}</span>
+	
+	@Test
+	public void toStringTest(){
+<span class="fc" id="L96">		assertEquals(&quot;0:0:0 1.1.2015&quot;, t.toString());</span>
+<span class="fc" id="L97">	}</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>All (22.03.2015 14:51:06)</div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>All (22.03.2015 16:38:31)</div></body></html>
