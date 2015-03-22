@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>week1.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">All (22.03.2015 14:35:57)</a> &gt; <a href="../../index.html" class="el_group">test</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">part1</a> &gt; <span class="el_source">week1.java</span></div><h1>week1.java</h1><pre class="source lang-java linenums">package part1;
+
+<span class="nc" id="L3">public class week1 {</span>
+	
+	public int getNumberOfDigits(int num){
+<span class="nc" id="L6">		return Integer.toString(num).length();</span>
+	}
+	
+	public String joinStrings(String glue, String ... args){
+<span class="nc" id="L10">		StringBuilder result = new StringBuilder();</span>
+		
+<span class="nc" id="L12">		int i = 0;</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">		for(String word : args){</span>
+<span class="nc" id="L14">			result.append(word);</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">			if(i != args.length-1) result.append(glue);</span>
+<span class="nc" id="L16">			++i;</span>
+		}
+		
+<span class="nc" id="L19">		return result.toString();</span>
+	}
+	
+	public String reduceFilePath(String path){
+<span class="nc" id="L23">		String result = path;</span>
+	
+<span class="nc bnc" id="L25" title="All 2 branches missed.">		while(result.contains((&quot;/./&quot;))){ //replace recursively</span>
+<span class="nc" id="L26">			result = result.replaceAll(&quot;/./&quot;, &quot;/&quot;);</span>
+		}
+<span class="nc" id="L28">		result = result.replaceAll(&quot;//&quot;, &quot;/&quot;);</span>
+<span class="nc" id="L29">		result = result.replaceAll(&quot;/([\\S]*)/../&quot;, &quot;/&quot;);</span>
+<span class="nc" id="L30">		result = result.replaceAll(&quot;/../&quot;, &quot;/&quot;); //single case for &quot;/../etc...&quot;</span>
+		
+<span class="nc bnc" id="L32" title="All 4 branches missed.">		if(result.endsWith(&quot;/&quot;) &amp;&amp; result.length() != 1) result = result.substring(0, result.length()-1);</span>
+<span class="nc" id="L33">		return result;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>All (22.03.2015 14:35:57)</div></body></html>

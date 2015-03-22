@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>Time.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">All (22.03.2015 14:35:57)</a> &gt; <a href="../../index.html" class="el_group">test</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">part2</a> &gt; <span class="el_source">Time.java</span></div><h1>Time.java</h1><pre class="source lang-java linenums">package part2;
+
+import java.util.Calendar;
+
+public class Time {
+	
+<span class="fc" id="L7">	private int hours = 0, minutes = 0, seconds = 0, milliseconds = 0;</span>
+<span class="fc" id="L8">	private int year = 2015;</span>
+<span class="fc" id="L9">	private int month = 1, day = 1;</span>
+	
+	public int getHours() {
+<span class="fc" id="L12">		return hours;</span>
+	}
+
+	public void setHours(int hours) {
+<span class="pc bpc" id="L16" title="1 of 4 branches missed.">		if(hours &gt;= 0 &amp;&amp; hours &lt; 23)</span>
+<span class="fc" id="L17">			this.hours = hours;</span>
+<span class="fc" id="L18">		else throw new IllegalArgumentException();</span>
+<span class="fc" id="L19">	}</span>
+
+	public int getMinutes() {
+<span class="fc" id="L22">		return minutes;</span>
+	}
+
+	public void setMinutes(int minutes) {
+<span class="pc bpc" id="L26" title="1 of 4 branches missed.">		if(minutes &gt;= 0 &amp;&amp; minutes &lt; 60)</span>
+<span class="fc" id="L27">			this.minutes = minutes;</span>
+<span class="fc" id="L28">		else throw new IllegalArgumentException();</span>
+<span class="fc" id="L29">	}</span>
+
+	public int getSeconds() {
+<span class="fc" id="L32">		return seconds;</span>
+	}
+
+	public void setSeconds(int seconds) {
+<span class="pc bpc" id="L36" title="1 of 4 branches missed.">		if(seconds &gt;= 0 &amp;&amp; seconds &lt; 60)</span>
+<span class="fc" id="L37">			this.seconds = seconds;</span>
+<span class="fc" id="L38">		else throw new IllegalArgumentException();</span>
+<span class="fc" id="L39">	}</span>
+
+	public int getMilliseconds() {
+<span class="fc" id="L42">		return milliseconds;</span>
+	}
+
+	public void setMilliseconds(int milliseconds) {
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">		if(milliseconds &gt;= 0 &amp;&amp; milliseconds &lt; 1000)</span>
+<span class="fc" id="L47">			this.milliseconds = milliseconds;</span>
+<span class="fc" id="L48">		else throw new IllegalArgumentException();</span>
+<span class="fc" id="L49">	}</span>
+
+	public int getYear() {
+<span class="fc" id="L52">		return year;</span>
+	}
+
+	public void setYear(int year) {
+<span class="fc" id="L56">		this.year = year;</span>
+<span class="fc" id="L57">	}</span>
+
+	public int getMonth() {
+<span class="fc" id="L60">		return month;</span>
+	}
+
+	public void setMonth(int month) {
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">		if(month &gt;= 1 &amp;&amp; month &lt;= 12)</span>
+<span class="fc" id="L65">			this.month = month;</span>
+<span class="fc" id="L66">		else throw new IllegalArgumentException();</span>
+<span class="fc" id="L67">	}</span>
+
+	public int getDay() {
+<span class="fc" id="L70">		return day;</span>
+	}
+
+	public void setDay(int day) {
+<span class="fc" id="L74">		int[] daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};</span>
+		
+<span class="pc bpc" id="L76" title="6 of 10 branches missed.">		if((day &gt;= 0) &amp;&amp; (day &lt;= daysInMonth[this.month-1] || (isLeapYear(this.year) &amp;&amp; this.month == 1 &amp;&amp; day == 29))) //handling Feb on leap years...</span>
+<span class="fc" id="L77">			this.day = day;</span>
+<span class="fc" id="L78">		else throw new IllegalArgumentException();</span>
+<span class="fc" id="L79">	}</span>
+	
+	public boolean isLeapYear(int year){
+<span class="pc bpc" id="L82" title="4 of 6 branches missed.">		if((year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0)</span>
+<span class="nc" id="L83">			return true;</span>
+<span class="fc" id="L84">		return false;</span>
+	}
+	
+	public Time now(){
+<span class="nc" id="L88">		Time time = new Time();</span>
+<span class="nc" id="L89">		Calendar calendar = Calendar.getInstance();</span>
+<span class="nc" id="L90">		time.year = calendar.get(Calendar.YEAR);</span>
+<span class="nc" id="L91">		time.month = calendar.get(Calendar.MONTH) + 1;</span>
+<span class="nc" id="L92">		time.day = calendar.get(Calendar.DAY_OF_MONTH);</span>
+<span class="nc" id="L93">		time.hours = calendar.get(Calendar.HOUR_OF_DAY);</span>
+<span class="nc" id="L94">		time.minutes = calendar.get(Calendar.MINUTE);</span>
+<span class="nc" id="L95">		time.seconds = calendar.get(Calendar.SECOND);</span>
+<span class="nc" id="L96">		time.milliseconds = calendar.get(Calendar.MILLISECOND);</span>
+		
+<span class="nc" id="L98">		return time;</span>
+	}
+
+<span class="fc" id="L101">	public Time(){</span>
+<span class="fc" id="L102">	}</span>
+	
+<span class="fc" id="L104">	public Time(Time t){</span>
+<span class="fc" id="L105">		this.year = t.year;</span>
+<span class="fc" id="L106">		this.month = t.month;</span>
+<span class="fc" id="L107">		this.day = t.day;</span>
+<span class="fc" id="L108">		this.hours = t.hours;</span>
+<span class="fc" id="L109">		this.minutes = t.minutes;</span>
+<span class="fc" id="L110">		this.seconds = t.seconds;</span>
+<span class="fc" id="L111">		this.milliseconds = t.milliseconds;</span>
+<span class="fc" id="L112">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>All (22.03.2015 14:35:57)</div></body></html>

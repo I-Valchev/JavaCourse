@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>week1Test.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">All (22.03.2015 14:35:57)</a> &gt; <a href="../../index.html" class="el_group">test</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">part1</a> &gt; <span class="el_source">week1Test.java</span></div><h1>week1Test.java</h1><pre class="source lang-java linenums">package part1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="nc" id="L7">public class week1Test{</span>
+
+	@Test
+	public void test() {
+<span class="nc" id="L11">		assertEquals(4, new week1().getNumberOfDigits(1444));</span>
+<span class="nc" id="L12">	}</span>
+	
+	@Test
+	public void joinStringsTest(){
+<span class="nc" id="L16">		assertEquals(&quot;I join strings&quot;, new week1().joinStrings(&quot; &quot;,&quot;I&quot;,&quot;join&quot;, &quot;strings&quot;));</span>
+<span class="nc" id="L17">	}</span>
+	
+	@Test
+	public void reduceFilePathTest(){
+<span class="nc" id="L21">		assertEquals(&quot;/&quot;, new week1().reduceFilePath(&quot;/&quot;));</span>
+		
+<span class="nc" id="L23">		assertEquals(&quot;/&quot;, new week1().reduceFilePath(&quot;/srv/../&quot;));</span>
+<span class="nc" id="L24">		assertEquals(&quot;/srv/www/htdocs/wtf&quot;, new week1().reduceFilePath(&quot;/srv/www/htdocs/wtf/&quot;));</span>
+<span class="nc" id="L25">		assertEquals(&quot;/srv/www/htdocs/wtf&quot;, new week1().reduceFilePath(&quot;/srv/www/htdocs/wtf&quot;));</span>
+<span class="nc" id="L26">		assertEquals(&quot;/srv&quot;, new week1().reduceFilePath(&quot;/srv/./././././&quot;));</span>
+<span class="nc" id="L27">		assertEquals(&quot;/etc/wtf&quot;, new week1().reduceFilePath(&quot;/etc//wtf/&quot;));</span>
+<span class="nc" id="L28">		assertEquals(&quot;/&quot;, new week1().reduceFilePath(&quot;/etc/../etc/../etc/../&quot;));</span>
+<span class="nc" id="L29">		assertEquals(&quot;/&quot;, new week1().reduceFilePath(&quot;//////////////&quot;));</span>
+<span class="nc" id="L30">		assertEquals(&quot;/&quot;, new week1().reduceFilePath(&quot;/../&quot;));</span>
+<span class="nc" id="L31">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>All (22.03.2015 14:35:57)</div></body></html>
